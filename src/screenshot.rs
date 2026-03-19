@@ -1,17 +1,16 @@
 /*
- * Copyright © 2025 Valve Corporation
+ * Copyright © 2025-2026 Valve Corporation
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 use ashpd::{
-    AppID, PortalError, WindowIdentifierType,
-    backend::{
-        Result,
-        request::RequestImpl,
-        screenshot::{ColorOptions, ScreenshotImpl, ScreenshotOptions},
+    AppID, PortalError, Uri, WindowIdentifierType,
+    backend::{Result, request::RequestImpl, screenshot::ScreenshotImpl},
+    desktop::{
+        Color, HandleToken,
+        screenshot::{ColorOptions, Screenshot as ScreenshotResponse, ScreenshotOptions},
     },
-    desktop::{Color, HandleToken, screenshot::Screenshot as ScreenshotResponse},
     zbus::DBusError,
 };
 use async_trait::async_trait;
@@ -62,7 +61,7 @@ impl ScreenshotImpl for Screenshot {
             "Screenshot_{}.png",
             chrono::Local::now().format("%Y%m%d_%H%M%S")
         ));
-        let url = match url::Url::from_file_path(path.as_path()) {
+        let url = match Uri::parse(path.as_path().to_str().expect("valid file path")) {
             Ok(url) => url,
             _ => {
                 return log_error(PortalError::Failed(format!(

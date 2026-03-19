@@ -1,5 +1,5 @@
 /*
- * Copyright © 2025 Valve Corporation
+ * Copyright © 2025-2026 Valve Corporation
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,15 +9,15 @@ use ashpd::{
     backend::{
         Result,
         request::RequestImpl,
-        screencast::{
-            CreateSessionOptions, ScreencastImpl, SelectSourcesOptions, SelectSourcesResponse,
-            StartCastOptions,
-        },
+        screencast::{ScreencastImpl, SelectSourcesResponse},
         session::{CreateSessionResponse, SessionImpl},
     },
     desktop::{
-        HandleToken,
-        screencast::{CursorMode, SourceType, StreamBuilder, Streams, StreamsBuilder},
+        CreateSessionOptions, HandleToken,
+        screencast::{
+            CursorMode, SelectSourcesOptions, SourceType, StartCastOptions, StreamBuilder, Streams,
+            StreamsBuilder,
+        },
     },
     enumflags2::BitFlags,
 };

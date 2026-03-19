@@ -5,7 +5,7 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-ashpd = { git = "https://github.com/bilelmoussaoui/ashpd", rev = "f35d4757ea889d06ac0ab455d113a590632aae0d", features = ["backend"] }
+ashpd = { version = "0.13.9", features = ["backend", "screencast", "screenshot"] }
 async-trait = "0.1.86"
 chrono = "0.4.39"
 futures-util = "0.3.31"
@@ -13,7 +13,6 @@ inotify = "0.11"
 log = "0.4.26"
 systemd-journal-logger = "0.5.0"
 tokio = { version = "1.43.0", features = ["fs", "macros", "net", "process", "rt-multi-thread", "sync"] }
-url = "2.3.1"
 wayland-backend = "0.3.10"
 wayland-client = "0.31.10"
 wayland-scanner = "0.31.6"
