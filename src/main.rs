@@ -1,5 +1,5 @@
 /*
- * Copyright © 2025 Valve Corporation
+ * Copyright © 2025-2026 Valve Corporation
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -18,7 +18,7 @@ include!(concat!(env!("CARGO_TARGET_DIR"), "/config.rs"));
 
 #[tokio::main]
 async fn main() -> ashpd::Result<()> {
-    let _ = systemd_journal_logger::init();
+    systemd_journal_logger::JournalLog::new().unwrap().install().unwrap();
     log::set_max_level(log::LevelFilter::Info);
 
     if !std::env::var("XDG_CURRENT_DESKTOP").is_ok_and(|v| v == "gamescope") {

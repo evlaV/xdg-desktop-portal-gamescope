@@ -6,14 +6,14 @@ edition = "2024"
 
 [dependencies]
 ashpd = { version = "0.13.9", features = ["backend", "screencast", "screenshot"] }
-async-trait = "0.1.86"
-chrono = "0.4.39"
-futures-util = "0.3.31"
-inotify = "0.11"
-log = "0.4.26"
-systemd-journal-logger = "0.5.0"
-tokio = { version = "1.43.0", features = ["fs", "macros", "net", "process", "rt-multi-thread", "sync"] }
-wayland-backend = "0.3.10"
-wayland-client = "0.31.10"
-wayland-scanner = "0.31.6"
+async-trait = "0.1.89"
+chrono = "0.4.44"
+futures-util = "0.3.32"
+inotify = "0.11.1"
+log = "0.4.29"
+systemd-journal-logger = "2.2.2"
+tokio = { version = "1.50.0", features = ["fs", "macros", "net", "process", "rt-multi-thread", "sync"] }
+wayland-backend = "0.3.14"
+wayland-client = "0.31.13"
+wayland-scanner = "0.31.9"
 xdg-user = "0.2.1"
