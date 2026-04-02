@@ -25,33 +25,33 @@ session_bus_services_dir = dbus.get_variable(pkgconfig: 'session_bus_services_di
 session_bus_services_dir = prefix / fs.relative_to(session_bus_services_dir, dbus_default_prefix)
 
 configure_file(
-  input: 'gamescope.portal.in',
-  output: '@BASENAME@',
-  configuration: data_conf,
-  install: true,
-  install_dir: portal_dir,
+    input: 'gamescope.portal.in',
+    output: '@BASENAME@',
+    configuration: data_conf,
+    install: true,
+    install_dir: portal_dir,
 )
 
 configure_file(
-  input: busname + '.service.in',
-  output: '@BASENAME@',
-  configuration: data_conf,
-  install: true,
-  install_dir: session_bus_services_dir,
+    input: busname + '.service.in',
+    output: '@BASENAME@',
+    configuration: data_conf,
+    install: true,
+    install_dir: session_bus_services_dir,
 )
 
 configure_file(
-  input: binary + '.desktop.in',
-  output: '@BASENAME@',
-  configuration: data_conf,
-  install: true,
-  install_dir: datadir / 'applications',
+    input: binary + '.desktop.in',
+    output: '@BASENAME@',
+    configuration: data_conf,
+    install: true,
+    install_dir: datadir / 'applications',
 )
 
 configure_file(
-  input: binary + '.service.in',
-  output: '@BASENAME@',
-  configuration: data_conf,
-  install: true,
-  install_dir: systemd_user_unit_dir,
+    input: binary + '.service.in',
+    output: '@BASENAME@',
+    configuration: data_conf,
+    install: true,
+    install_dir: systemd_user_unit_dir,
 )

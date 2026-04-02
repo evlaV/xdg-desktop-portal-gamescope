@@ -3,10 +3,11 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 project(
-  'xdg-desktop-portal-gamescope', 'rust',
-  version: '0.1',
-  license: 'BSD-3-Clause',
-  meson_version: '>=1.3',
+    'xdg-desktop-portal-gamescope',
+    'rust',
+    version: '0.1',
+    license: 'BSD-3-Clause',
+    meson_version: '>=1.3',
 )
 
 cargo = find_program('cargo', required: true)
