@@ -18,7 +18,10 @@ include!(concat!(env!("CARGO_TARGET_DIR"), "/config.rs"));
 
 #[tokio::main]
 async fn main() -> ashpd::Result<()> {
-    systemd_journal_logger::JournalLog::new().unwrap().install().unwrap();
+    systemd_journal_logger::JournalLog::new()
+        .unwrap()
+        .install()
+        .unwrap();
     log::set_max_level(log::LevelFilter::Info);
 
     if !std::env::var("XDG_CURRENT_DESKTOP").is_ok_and(|v| v == "gamescope") {
