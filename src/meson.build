@@ -1,4 +1,4 @@
-# Copyright © 2025 Valve Corporation
+# Copyright © 2025-2026 Valve Corporation
 #
 # SPDX-License-Identifier: BSD-3-Clause
 
@@ -17,10 +17,7 @@ else
     message('Building in release mode')
 endif
 
-cargo_env = ['CARGO_HOME=' + meson.project_build_root() / 'cargo-home']
-cargo_env += ['CARGO_TARGET_DIR=' + meson.project_build_root() / 'src']
-
-custom_target(
+cargo_build = custom_target(
     'cargo-build',
     build_by_default: true,
     build_always_stale: true,
