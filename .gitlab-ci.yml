@@ -8,5 +8,4 @@ integration tests:
     - xdg-user-dirs-update
     - /usr/lib/systemd/systemd-journald &
     - meson setup --prefix /usr _build .
-    - meson compile -C _build
     - meson test -C _build -v
