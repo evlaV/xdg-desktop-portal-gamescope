@@ -61,7 +61,10 @@ impl ScreenshotImpl for Screenshot {
             "Screenshot_{}.png",
             chrono::Local::now().format("%Y%m%d_%H%M%S")
         ));
-        let url = match Uri::parse(path.as_path().to_str().expect("valid file path")) {
+        let url = match Uri::parse(&format!(
+            "file://{}",
+            path.as_path().to_str().expect("valid file path")
+        )) {
             Ok(url) => url,
             _ => {
                 return log_error(PortalError::Failed(format!(
