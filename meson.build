@@ -1,4 +1,4 @@
-# Copyright © 2025 Valve Corporation
+# Copyright © 2025-2026 Valve Corporation
 #
 # SPDX-License-Identifier: BSD-3-Clause
 
@@ -23,5 +23,9 @@ libexecdir = prefix / get_option('libexecdir')
 busname = 'org.freedesktop.impl.portal.desktop.gamescope'
 binary = meson.project_name()
 
+cargo_env = ['CARGO_HOME=' + meson.project_build_root() / 'cargo-home']
+cargo_env += ['CARGO_TARGET_DIR=' + meson.project_build_root() / 'src']
+
 subdir('data')
 subdir('src')
+subdir('tests')

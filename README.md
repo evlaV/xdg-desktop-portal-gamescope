@@ -14,6 +14,12 @@ $ meson compile -C _build
 $ meson install -C _build --no-rebuild
 ```
 
+## How to run integration tests
+
+```shell
+$ meson test -C _build -v
+```
+
 ## Authors
 
 Olivier Tilloy <otilloy@igalia.com>

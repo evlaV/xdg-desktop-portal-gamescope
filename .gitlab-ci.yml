@@ -1,0 +1,12 @@
+image: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/archlinux:base-devel
+
+integration tests:
+  tags:
+    - x86_64-linux-kvm-docker
+  script:
+    - pacman -Sy --noconfirm --needed meson rust xdg-user-dirs
+    - xdg-user-dirs-update
+    - /usr/lib/systemd/systemd-journald &
+    - meson setup --prefix /usr _build .
+    - meson compile -C _build
+    - meson test -C _build -v
